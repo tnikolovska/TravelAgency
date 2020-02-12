@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TravelAgency.Models.HotelSpecialOffer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-danger">List of the hotels with special offer</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered" id="hotels">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.specialOffer.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Name, "Details", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stars)*
+                </td>
+                <td>
+                    @Html.ActionLink(item.specialOffer.Name, "Details", "SpecialOffers", new { id = item.SpecialOfferId }, null)
+                </td>
+                <td>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    }
+
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    }
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+        //$("#hotels").DataTable();
+    </script>
+
+}

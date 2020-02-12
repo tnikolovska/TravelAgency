@@ -1,0 +1,72 @@
+﻿@model TravelAgency.Models.SpecialOffer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1 class="text-primary display-4 text-center">@Model.Name</h1>
+<div class="row d-flex justify-content-center">
+    <div class="col-10 justify-content-center">
+        <div class="card">
+            <img src="@Url.Content(Model.MainImage)" class="card-img h-50">
+            <div class="card-body">
+                <h3 class="text-warning">Location and description</h3>
+                <p>@Model.Description</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row  mt-3 d-flex justify-content-lg-center">
+    <div class="col-10 justify-content-center">
+        <section style="background-color:cornsilk">
+            <table class="table" style="border-width:10px">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            @Html.Label("Hotel", new { @class = " text-primary" })
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var m in Model.hotels)
+                        {
+                            <tr>
+                                <td class="d-flex justify-content-center">
+                                    <div class="card d-flex justify-content-center" style="width:300px;">
+                                        <img src="@Url.Content(m.mainImage)" class="card-img" style="height:150px;width:300px">
+                                        <div class="card-body">
+                                            <h5> @Html.ActionLink(m.Name, "Details", "HotelSpecialOffers", new { id = m.Id }, null)</h5>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="align-items-center">
+                                    <h3 class="align-self-center" style="margin-top:75px">@Html.ActionLink("Read more...", "Details", "HotelSpecialOffers", new { id = m.Id }, null)</h3>
+                                </td>
+                            </tr>
+
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </section>
+
+    </div>
+</div>
+<p>
+    @if (User.IsInRole("Administrator"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    }
+
+    @Html.ActionLink("Back to List", "Index")
+    @if (User.IsInRole("Administrator"))
+    {
+        @Html.ActionLink("Add new hotel", "AddHotelToDestination", new { id = Model.Id })
+    }
+
+</p>
+

@@ -1,0 +1,27 @@
+﻿@model TravelAgency.Models.Agenda
+@{
+    ViewBag.Title = "Agenda";
+}
+
+<h2>Change agenda for @Html.ActionLink(Model.cruise.Name, "Details", new { id = Model.CruiseId })</h2>
+@using (Html.BeginForm("Agenda", "Cruises"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Day)
+        @Html.TextBoxFor(m => m.Day, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Port)
+        @Html.TextBoxFor(m => m.Port, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Departure)
+        @Html.TextBoxFor(m => m.Departure, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Arrival)
+        @Html.TextBoxFor(m => m.Arrival, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.CruiseId)
+    <button type="submit" class=" btn btn-primary">Add new day in agenda</button>
+}

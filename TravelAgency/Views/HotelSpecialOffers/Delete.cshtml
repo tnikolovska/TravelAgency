@@ -1,0 +1,111 @@
+﻿@model TravelAgency.Models.HotelSpecialOffer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Hotel Special Offer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.specialOffer.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.specialOffer.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mainImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mainImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image5)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image5)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image6)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image6)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

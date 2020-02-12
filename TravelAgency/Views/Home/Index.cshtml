@@ -2,30 +2,62 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col">
+        <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="actice"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1" class="actice"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2" class="actice"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="~/img/DalechniDestinacii.jpg" alt="First slide" style="height:500px">
+                    <div class="carousel-caption">
+                        <h3 class="text-center bg-white text-white">@Html.ActionLink("Distant Destinations", "Index", "DistantDestinations")</h3>
+                        <p class="text-center bg-white  text-primary">Maldives, Thailand, Zanzibar...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/img/cruisesWorld.jpg" alt="Second slide" style="height:500px">
+                    <div class="carousel-caption">
+                        <h3 class="text-center bg-white  text-white">@Html.ActionLink("Cruises", "Index", "Cruises")</h3>
+                        <p class="text-center bg-white  text-primary">Europe, America, Asia...</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/img/SpecialOffers.jpg" alt="Third slide" style="height:500px">
+                    <div class="carousel-caption">
+                        <h3 class="text-center bg-white  text-white">@Html.ActionLink("Special Offers", "Index", "SpecialOffers")</h3>
+                        <p class="text-center bg-white  text-primary">Russia, Tunis, Morocco, Spain...</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+   
 </div>
+
+<footer style="margin-top:200px;height:200px;margin-bottom:-20px;width:1310px;margin-right:100px;background-color:cornsilk">
+    <div class="row ml-5 mb-0 justify-content-center">
+        <div class="col-5 text-center m-0">
+            <img src="~/img/logo.jpg" style="height:50px;width:100px" class="mt-3">
+            <p class="small  mb-0 text-center text-info">Working Hours: <strong>Monday-Friday 09:00 - 18:00, Saturday: 09:00 - 14:00</strong></p>
+            <p class="small mb-0 text-info">Address: <strong>St. 11 October бр.86</strong></p>
+            <p class="small mb-0 text-info ">Tel. no: <strong>(02) 3222 - 201</strong></p>
+            <p class="small mb-0 text-info ">e-mail: <span class=""><a href="mailto:#">office@Itravel.mk</a></span></p>
+        </div>
+        <div class="col-7 m-0 justify-content-end">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5660.308413481071!2d20.466616!3d44.818423!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x77b89af8afdf1b15!2sI+Travel+turisti%C4%8Dka+agencija!5e0!3m2!1sen!2sus!4v1559980136340!5m2!1sen!2sus" class="d-block mt-3 mb-0" frameborder="0" style="border:0; height:150px;width:500px;" allowfullscreen></iframe>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,15 @@
+﻿@model TravelAgency.Models.AddHotelToDestination
+@{
+    ViewBag.Title = "AddHotelToDestination";
+}
+
+<h2> Додади хотел во @Html.ActionLink(Model.destination.Name, "Details", new { id = Model.DistantDestinationId })</h2>
+@using (Html.BeginForm("AddHotelToDestination", "DistantDestinations"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.HotelId)
+        @Html.DropDownListFor(m => m.HotelId, new SelectList(Model.hotelNames, "Id", "Name"), new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.DistantDestinationId)
+    <button type="submit" class="btn btn-primary">Add hotel</button>
+}

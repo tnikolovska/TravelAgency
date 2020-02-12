@@ -1,0 +1,20 @@
+﻿@model TravelAgency.Models.AddArangement
+@{
+    ViewBag.Title = "AddArrangement";
+}
+
+<h2>Add arrangement and price for @Html.ActionLink(Model.hotel.Name, "Details", new { id = Model.HotelId })</h2>
+@using (Html.BeginForm("AddArrangement", "Hotels"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.dateTime)
+        @Html.TextBoxFor(m => m.dateTime, new { @class = "form-control", type = "date" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.price)
+        @Html.TextBoxFor(m => m.price, new { @class = "form-control", type = "number" })
+    </div>
+    @Html.HiddenFor(m => m.HotelId)
+    <button type="submit" class="btn btn-primary">Add Arrangement</button>
+
+}

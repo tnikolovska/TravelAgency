@@ -1,0 +1,151 @@
+﻿@model TravelAgency.Models.Cruise
+@using TravelAgency.Models;
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2></h2>
+
+<div class="row mt-3">
+    <div class="col-9">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-danger">@Model.Name</h3>
+            </div>
+            <div class="card-body">
+                <h5 class="text-danger">Description</h5>
+                <p>@Model.Description</p>
+            </div>
+        </div>
+        <h5 class="text-primary mt-5">Agenda</h5>
+        @if (User.IsInRole("Administrator"))
+        {
+            @Html.ActionLink("Change Agenda", "Agenda", new { id = Model.Id })
+        }
+        <table class="table table-hover table-bordered table-sm mt-5" id="AgendaTable">
+            <thead>
+                <tr class="text-center">
+                    <th>Day</th>
+                    <th>Port</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (CruisePlan s in Model.cruisePlans)
+                    {
+                        <tr class="text-center">
+                            <td>@s.Day</td>
+                            <td>@s.Port</td>
+                            <td>@s.Departure</td>
+                            <td>@s.Arrival</td>
+                            <td>
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", "CruisePlans", new { id = s.Id }, null)  @Html.ActionLink("Delete", "Delete", "CruisePlans", new { id = s.Id }, null)
+                                }
+
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <h5 class="text-primary mt-5">Price List</h5>
+        @if (User.IsInRole("Administrator"))
+        {
+            @Html.ActionLink("Change Price list", "PriceList", new { id = Model.Id })
+        }
+        <table class="table table-bordered " id="CruisePricesTable">
+            <thead>
+                <tr class="text-center">
+                    <th>
+                        @Html.Label("Day Departure")
+                    </th>
+                    <th>
+                        @Html.Label("Inside Cabin")
+                    </th>
+                    <th>
+                        @Html.Label("Balcony Cabin")
+                    </th>
+                    <th>
+                        @Html.Label("Ocen-view Cabin")
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (CruiseArrangement k in Model.cruiseArrangements)
+                    {
+                        <tr class="text-center">
+                            <td>@k.date.ToShortDateString()</td>
+                            <td>@k.InsideCabin €</td>
+                            <td>@k.BalconyCabin €</td>
+                            <td>@k.OceanViewCabin €</td>
+                            <td>
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    @Html.ActionLink("Edit", "Edit", "CruiseArrangements", new { id = k.Id }, null) @Html.ActionLink("Delete", "Delete", "CruiseArrangements", new { id = k.Id }, null)
+
+
+                                }
+
+
+                            </td>
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <p>
+            @if (User.IsInRole("Administrator"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+            }
+            
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+    <div class="col-3">
+        <div class="row mt-2">
+            <div class="col">
+                <img src="@Url.Content(Model.image1)" style="height:300px;width:300px" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <img src="@Url.Content(Model.image2)" style="height:300px;width:300px" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <img src="@Url.Content(Model.image3)" style="height:300px;width:300px" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <img src="@Url.Content(Model.image4)" style="height:300px;width:300px" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <img src="@Url.Content(Model.image5)" style="height:300px;width:300px" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <img src="@Url.Content(Model.image6)" style="height:300px;width:300px" />
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+       
+    </script>
+
+}

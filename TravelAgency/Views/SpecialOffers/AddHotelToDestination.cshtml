@@ -1,0 +1,16 @@
+﻿@model TravelAgency.Models.AddHotelSpecialOffer
+@{
+    ViewBag.Title = "AddHotelToDestination";
+}
+
+<h2>Add Hotel To Destination @Model.specialOffer.Name</h2>
+@using (Html.BeginForm("AddHotelToDestination", "SpecialOffers"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.HotelId);
+        @Html.DropDownListFor(m => m.HotelId, new SelectList(Model.hotelNames, "Id", "Name"), new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.SpecialOfferId)
+    <button type="submit" class="btn btn-primary">Add hotel</button>
+}
+

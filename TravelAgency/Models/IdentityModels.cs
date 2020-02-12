@@ -20,6 +20,15 @@ namespace TravelAgency.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<Cruise> Cruises { get; set; }
+        public DbSet<DistantDestination> DistantDestinations { get; set; }
+        public DbSet<HotelSpecialOffer> HotelSpecialOffers { get; set; }
+        public DbSet<SpecialOffer> SpecialOffers { get; set; }
+        public DbSet<CruisePlan> CruisePlans { get; set; }
+        public DbSet<CruiseArrangement> CruiseArrangements { get; set; }
+        public DbSet<ArrangementPrice> ArrangementPrices { get; set; }
+        public DbSet<ArrangementPriceSpecial> ArrangementPriceSpecials { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

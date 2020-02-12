@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TravelAgency.Models.SpecialOffer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-danger display-4 text-center"><strong>Special offer</strong></h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<section id="content" style="background-image:url('/img/backSpecialOffer.jpg');background-repeat:no-repeat;background-position-x:center;background-position-y:bottom;display:block;background-size:cover;height:100vh;width:1300px;background-position:center">
+    <table class="table">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-danger text-center">@Html.ActionLink(item.Name, "Details", new { id = item.Id }, new { @class = "text-danger" })</h3>
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-light text-primary" })
+                    }
+
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-light text-primary" })  
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-light text-primary" })
+                    }
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</section>
